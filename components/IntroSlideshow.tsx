@@ -288,10 +288,10 @@ export default function IntroSlideshow({ onComplete, images }: IntroSlideshowPro
                 animate={{ opacity: 1, y: 0, scale: 1 }}
                 exit={{ opacity: 0, y: -40, scale: 1.05 }}
                 transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-                className="text-center px-6 max-w-[92vw] mx-auto"
+                className="text-center px-6 max-w-[88vw] mx-auto"
               >
                 <motion.h1
-                  className="font-serif text-[clamp(2.25rem,9vw,8rem)] leading-[1.05] tracking-tight mb-6 text-balance"
+                  className="font-serif text-[clamp(1.75rem,7vw,8rem)] leading-[1.05] tracking-tight mb-6 text-balance break-words"
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.2, duration: 0.6 }}
@@ -299,9 +299,9 @@ export default function IntroSlideshow({ onComplete, images }: IntroSlideshowPro
                   <span className="italic">{slides[currentSlide].title}</span>
                 </motion.h1>
                 <motion.p
-                  className="font-mono text-sm md:text-lg uppercase tracking-[0.3em] text-foreground/50"
-                  initial={{ opacity: 0, letterSpacing: '0.5em' }}
-                  animate={{ opacity: 1, letterSpacing: '0.3em' }}
+                  className="font-mono text-[clamp(0.65rem,2.2vw,1.125rem)] uppercase tracking-[0.15em] md:tracking-[0.3em] text-foreground/50 break-words"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
                   transition={{ delay: 0.5, duration: 0.8 }}
                 >
                   {slides[currentSlide].subtitle}

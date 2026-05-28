@@ -36,6 +36,19 @@ export function useSlideScroll(totalSections: number) {
   }, [totalSections]);
 
   const handleWheel = useCallback((e: WheelEvent) => {
+    const scroller = (e.target as HTMLElement | null)?.closest('[data-slide-scroll]') as HTMLElement | null;
+    if (scroller) {
+      const { scrollTop, scrollHeight, clientHeight } = scroller;
+      const canScrollContent = scrollHeight > clientHeight + 1;
+      const goingDown = e.deltaY > 0;
+      const atTop = scrollTop <= 0;
+      const atBottom = scrollTop + clientHeight >= scrollHeight - 1;
+      if (canScrollContent && ((goingDown && !atBottom) || (!goingDown && !atTop))) {
+        // Let native scroll move within the section before advancing slides.
+        accumulatedDelta.current = 0;
+        return;
+      }
+    }
     e.preventDefault();
     accumulatedDelta.current += e.deltaY;
     if (Math.abs(accumulatedDelta.current) >= threshold) {
@@ -410,7 +423,7 @@ export function SlideSection({ children, index, currentSection, className = '', 
   return (
     <motion.section
       data-dark={darkBg ? 'true' : undefined}
-      className={`absolute inset-0 flex items-center justify-center ${className}`}
+      className={`absolute inset-0 ${className}`}
       initial={{ opacity: 0 }}
       animate={{
         opacity: isActive ? 1 : 0,
@@ -424,7 +437,14 @@ export function SlideSection({ children, index, currentSection, className = '', 
       }}
       style={{ pointerEvents: isActive ? 'auto' : 'none', zIndex: isActive ? 2 : 1 }}
     >
-      {children}
+      <div
+        data-slide-scroll={isActive ? 'true' : undefined}
+        className="h-full w-full overflow-y-auto overflow-x-hidden overscroll-contain"
+      >
+        <div className="min-h-full flex flex-col items-center justify-center py-16 md:py-20">
+          {children}
+        </div>
+      </div>
     </motion.section>
   );
 }
