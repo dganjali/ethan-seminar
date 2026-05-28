@@ -15,9 +15,12 @@ const instrumentSerif = Instrument_Serif({
 });
 
 export const metadata: Metadata = {
-	title: 'Research Proposal | AI in Healthcare Diagnostics',
-	description: 'An interactive research proposal exploring the integration of artificial intelligence in modern healthcare diagnostics.',
-	generator: 'v0.app'
+	title: 'Research Proposal | Ethan Li Ngan Sun',
+	description: 'Research Proposal | Ethan Li Ngan Sun',
+	icons: {
+		icon: '/icon.svg',
+		apple: '/apple-icon.png',
+	},
 };
 
 export default function RootLayout({

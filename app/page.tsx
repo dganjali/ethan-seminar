@@ -226,6 +226,14 @@ export default function Home() {
               >
                 Academic Research Proposal: High school students' understanding of political issues
               </motion.p>
+              <motion.p
+                className="font-serif italic text-base md:text-lg text-foreground/70 mt-6"
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: currentSection === 0 ? 1 : 0, y: currentSection === 0 ? 0 : 10 }}
+                transition={{ duration: 0.8, delay: 0.9 }}
+              >
+                By Ethan Li Ngan Sun
+              </motion.p>
             </div>
           </SlideSection>
 
