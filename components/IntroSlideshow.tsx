@@ -11,7 +11,7 @@ interface IntroSlideshowProps {
 
 const slides = [
   {
-    title: 'Research Proposal',
+    title: 'Politics in Sixty Seconds',
     subtitle: 'Exploring New Frontiers',
   },
   {
