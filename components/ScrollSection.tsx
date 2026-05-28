@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef, useEffect, useLayoutEffect, useState, useCallback, type ReactNode } from 'react';
+import { useRef, useEffect, useState, useCallback, type ReactNode } from 'react';
 import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 
 export function useSlideScroll(totalSections: number) {
@@ -406,49 +406,11 @@ interface SlideSectionProps {
 export function SlideSection({ children, index, currentSection, className = '', darkBg = false }: SlideSectionProps) {
   const isActive = currentSection === index;
   const isPast = currentSection > index;
-  const frameRef = useRef<HTMLDivElement>(null);
-  const contentRef = useRef<HTMLDivElement>(null);
-  const [fitScale, setFitScale] = useState(1);
-
-  // Shrink the slide to fit the viewport height instead of clipping/scrolling.
-  const recompute = useCallback(() => {
-    const frame = frameRef.current;
-    const content = contentRef.current;
-    if (!frame || !content) return;
-    // scrollHeight reflects the untransformed natural height (CSS transforms don't affect layout).
-    const available = frame.clientHeight * 0.94; // leave a little breathing room top/bottom
-    const natural = content.scrollHeight;
-    setFitScale(natural > available ? Math.max(0.5, available / natural) : 1);
-  }, []);
-
-  useLayoutEffect(() => {
-    const frame = frameRef.current;
-    const content = contentRef.current;
-    if (!frame || !content) return;
-
-    recompute();
-    const ro = new ResizeObserver(recompute);
-    ro.observe(frame);
-    ro.observe(content);
-    window.addEventListener('resize', recompute);
-    // Fonts can reflow text taller after first paint — remeasure once they're ready.
-    document.fonts?.ready.then(recompute).catch(() => {});
-    return () => {
-      ro.disconnect();
-      window.removeEventListener('resize', recompute);
-    };
-  }, [recompute]);
-
-  // Remeasure on every navigation, after layout settles (covers viewport changes between slides too).
-  useLayoutEffect(() => {
-    const id = requestAnimationFrame(recompute);
-    return () => cancelAnimationFrame(id);
-  }, [currentSection, recompute]);
 
   return (
     <motion.section
       data-dark={darkBg ? 'true' : undefined}
-      className={`absolute inset-0 ${className}`}
+      className={`absolute inset-0 flex items-center justify-center ${className}`}
       initial={{ opacity: 0 }}
       animate={{
         opacity: isActive ? 1 : 0,
@@ -462,15 +424,7 @@ export function SlideSection({ children, index, currentSection, className = '', 
       }}
       style={{ pointerEvents: isActive ? 'auto' : 'none', zIndex: isActive ? 2 : 1 }}
     >
-      <div ref={frameRef} className="h-full w-full flex items-center justify-center overflow-hidden">
-        <div
-          ref={contentRef}
-          className="w-full"
-          style={{ transform: `scale(${fitScale})`, transformOrigin: 'center center' }}
-        >
-          {children}
-        </div>
-      </div>
+      {children}
     </motion.section>
   );
 }

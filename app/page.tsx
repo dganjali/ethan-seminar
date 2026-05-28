@@ -192,7 +192,7 @@ export default function Home() {
                 <motion.span
                   className="font-serif text-[clamp(2.1rem,8vw,6rem)] italic leading-[0.88] tracking-tight text-accent block"
                   initial={{ y: '110%' }}
-                  animate={{ y: currentSection === 0 ? '0%' : '110%' }}
+                  animate={{ y: currentSection === 0 && !showIntro ? '0%' : '110%' }}
                   transition={{ duration: 1.0, delay: 0.05, ease: [0.22, 1, 0.36, 1] }}
                 >
                   Short-Form
@@ -202,7 +202,7 @@ export default function Home() {
                 <motion.span
                   className="font-serif text-[clamp(2.4rem,10vw,8rem)] leading-[0.88] tracking-tight text-foreground/35 block"
                   initial={{ y: '110%' }}
-                  animate={{ y: currentSection === 0 ? '0%' : '110%' }}
+                  animate={{ y: currentSection === 0 && !showIntro ? '0%' : '110%' }}
                   transition={{ duration: 1.0, delay: 0.18, ease: [0.22, 1, 0.36, 1] }}
                 >
                   Political Media
@@ -212,7 +212,7 @@ export default function Home() {
                 <motion.span
                   className="font-serif text-[clamp(2.1rem,8vw,6rem)] leading-[0.88] tracking-tight block"
                   initial={{ y: '110%' }}
-                  animate={{ y: currentSection === 0 ? '0%' : '110%' }}
+                  animate={{ y: currentSection === 0 && !showIntro ? '0%' : '110%' }}
                   transition={{ duration: 1.0, delay: 0.31, ease: [0.22, 1, 0.36, 1] }}
                 >
                   & Civic Confidence
@@ -221,7 +221,7 @@ export default function Home() {
               <motion.p
                 className="font-mono text-[10px] uppercase tracking-[0.35em] text-foreground/35 max-w-sm"
                 initial={{ opacity: 0 }}
-                animate={{ opacity: currentSection === 0 ? 1 : 0 }}
+                animate={{ opacity: currentSection === 0 && !showIntro ? 1 : 0 }}
                 transition={{ duration: 0.8, delay: 0.75 }}
               >
                 Academic Research Proposal: High school students' understanding of political issues
@@ -229,7 +229,7 @@ export default function Home() {
               <motion.p
                 className="font-serif italic text-base md:text-lg text-foreground/70 mt-6"
                 initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: currentSection === 0 ? 1 : 0, y: currentSection === 0 ? 0 : 10 }}
+                animate={{ opacity: currentSection === 0 && !showIntro ? 1 : 0, y: currentSection === 0 && !showIntro ? 0 : 10 }}
                 transition={{ duration: 0.8, delay: 0.9 }}
               >
                 By Ethan Li Ngan Sun
@@ -660,11 +660,11 @@ export default function Home() {
                   { num: 5, title: 'Write Final Report', desc: 'Write complete findings, outline limitations, discuss implications, and plan next steps.', time: 'Month 5' },
                 ].map((item, i) => (
                   <ScrollSection key={item.num} animation="fade-left" isActive={currentSection === 13} delay={0.1 + i * 0.12}>
-                    <motion.div 
+                    <motion.div
                       className="flex items-start gap-6 md:gap-8"
                       whileHover={{ x: 10 }}
                     >
-                      <motion.div 
+                      <motion.div
                         className="w-14 h-14 md:w-16 md:h-16 rounded-full border border-foreground/20 hover:border-foreground/40 flex items-center justify-center shrink-0 mt-1"
                         whileHover={{ scale: 1.1 }}
                       >
