@@ -649,9 +649,9 @@ export default function Home() {
           <SlideSection index={13} currentSection={currentSection}>
             <div className="max-w-4xl mx-auto px-6">
               <ScrollSection animation="scale" isActive={currentSection === 13}>
-                <h2 className="font-serif text-3xl md:text-5xl tracking-tight mb-12">Timeline</h2>
+                <h2 className="font-serif text-3xl md:text-4xl tracking-tight mb-6 md:mb-8">Timeline</h2>
               </ScrollSection>
-              <div className="space-y-10">
+              <div className="space-y-4 md:space-y-5">
                 {[
                   { num: 1, title: 'Finalize Design & Submissions', desc: 'Secure research question, content samples, consent process, measurable tools and complete UofT ethics board approval.', time: 'Month 1' },
                   { num: 2, title: 'Launch Execution', desc: 'Launch survey and reflection prompts with high school student participation groups.', time: 'Month 2' },
@@ -661,18 +661,18 @@ export default function Home() {
                 ].map((item, i) => (
                   <ScrollSection key={item.num} animation="fade-left" isActive={currentSection === 13} delay={0.1 + i * 0.12}>
                     <motion.div
-                      className="flex items-start gap-6 md:gap-8"
+                      className="flex items-start gap-4 md:gap-5"
                       whileHover={{ x: 10 }}
                     >
                       <motion.div
-                        className="w-14 h-14 md:w-16 md:h-16 rounded-full border border-foreground/20 hover:border-foreground/40 flex items-center justify-center shrink-0 mt-1"
+                        className="w-10 h-10 md:w-12 md:h-12 rounded-full border border-foreground/20 hover:border-foreground/40 flex items-center justify-center shrink-0 mt-0.5"
                         whileHover={{ scale: 1.1 }}
                       >
-                        <span className="font-serif text-xl md:text-3xl text-foreground/60">{item.num}</span>
+                        <span className="font-serif text-lg md:text-xl text-foreground/60">{item.num}</span>
                       </motion.div>
-                      <div className="pt-1">
-                        <h3 className="font-serif text-2xl md:text-3xl mb-2">{item.title}</h3>
-                        <p className="text-foreground/70 text-lg md:text-xl leading-relaxed mb-3 font-light">{item.desc}</p>
+                      <div>
+                        <h3 className="font-serif text-lg md:text-2xl mb-0.5">{item.title}</h3>
+                        <p className="text-foreground/70 text-sm md:text-base leading-snug mb-1 font-light">{item.desc}</p>
                         <span className="font-mono text-xs uppercase tracking-wider text-foreground/40">{item.time}</span>
                       </div>
                     </motion.div>
