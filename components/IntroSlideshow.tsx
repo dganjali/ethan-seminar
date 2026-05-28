@@ -288,10 +288,10 @@ export default function IntroSlideshow({ onComplete, images }: IntroSlideshowPro
                 animate={{ opacity: 1, y: 0, scale: 1 }}
                 exit={{ opacity: 0, y: -40, scale: 1.05 }}
                 transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-                className="text-center px-6"
+                className="text-center px-6 max-w-[92vw] mx-auto"
               >
                 <motion.h1
-                  className="font-serif text-5xl md:text-9xl tracking-tight mb-6"
+                  className="font-serif text-[clamp(2.25rem,9vw,8rem)] leading-[1.05] tracking-tight mb-6 text-balance"
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.2, duration: 0.6 }}
