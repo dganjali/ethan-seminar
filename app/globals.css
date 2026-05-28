@@ -1,0 +1,61 @@
+@import 'tailwindcss';
+
+:root {
+	--background: oklch(99% 0.006 65);
+	--foreground: oklch(11% 0.005 65);
+	--accent: oklch(68% 0.14 65);
+}
+
+@theme inline {
+	--color-background: var(--background);
+	--color-foreground: var(--foreground);
+	--color-accent: var(--accent);
+	--font-sans: var(--font-geist-sans);
+	--font-mono: var(--font-geist-mono);
+	--font-serif: var(--font-instrument);
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--background: oklch(9% 0.004 65);
+		--foreground: oklch(93% 0.005 65);
+		--accent: oklch(73% 0.14 65);
+	}
+}
+
+body {
+	background: var(--background);
+	color: var(--foreground);
+	font-family: Arial, Helvetica, sans-serif;
+	overflow: hidden;
+}
+
+html {
+	overflow: hidden;
+}
+
+/* Dark section inversion — cool-tinted bg contrasts the warm light sections */
+[data-dark="true"] {
+  --background: oklch(11% 0.003 260);
+  --foreground: oklch(95% 0.003 260);
+  --accent: oklch(76% 0.15 65);
+  --color-background: oklch(11% 0.003 260);
+  --color-foreground: oklch(95% 0.003 260);
+  background-color: oklch(11% 0.003 260);
+  color: oklch(95% 0.003 260);
+}
+
+/* Ensure smooth transitions */
+* {
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
