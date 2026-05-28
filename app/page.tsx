@@ -686,19 +686,19 @@ export default function Home() {
           <SlideSection index={14} currentSection={currentSection} darkBg>
             <div className="max-w-3xl w-full mx-auto px-10 md:px-16">
               <motion.span
-                className="font-mono text-[10px] uppercase tracking-[0.35em] text-accent/70 block mb-10"
+                className="font-mono text-[10px] uppercase tracking-[0.35em] text-accent/70 block mb-5"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: currentSection === 14 ? 1 : 0 }}
                 transition={{ duration: 0.6, delay: 0.1 }}
               >
                 14 · References
               </motion.span>
-              <div className="space-y-10">
+              <div className="space-y-5">
                 <div>
-                  <h3 className="font-mono text-xs md:text-sm uppercase tracking-[0.3em] text-foreground/60 mb-5">
+                  <h3 className="font-mono text-xs md:text-sm uppercase tracking-[0.3em] text-foreground/60 mb-3">
                     Image citations
                   </h3>
-                  <div className="space-y-4">
+                  <div className="space-y-2.5">
                     {[
                       <>Foreman, T. (2024, October 28). <i className="italic">American battleground: How a night of fighting words upended the election</i>. CNN. https://www.cnn.com/2024/10/28/politics/american-battleground-biden-trump-debate/index.html</>,
                       <>Northup, K. (2025, February 7). <i className="italic">The state of TikTok in the United States</i>. RDW Group. https://rdwgroup.com/blog/2025/02/07/the-state-of-tiktok-in-the-united-states/</>,
@@ -707,7 +707,7 @@ export default function Home() {
                     ].map((ref, i) => (
                       <div key={i} className="overflow-hidden">
                         <motion.p
-                          className="font-mono text-[10px] md:text-sm text-foreground/55 leading-relaxed break-words"
+                          className="font-mono text-[10px] md:text-xs text-foreground/55 leading-snug break-words"
                           initial={{ y: '110%' }}
                           animate={{ y: currentSection === 14 ? '0%' : '110%' }}
                           transition={{ duration: 0.75, delay: 0.15 + i * 0.08, ease: [0.22, 1, 0.36, 1] }}
@@ -720,10 +720,10 @@ export default function Home() {
                 </div>
 
                 <div>
-                  <h3 className="font-mono text-xs md:text-sm uppercase tracking-[0.3em] text-foreground/60 mb-5">
+                  <h3 className="font-mono text-xs md:text-sm uppercase tracking-[0.3em] text-foreground/60 mb-3">
                     References
                   </h3>
-                  <div className="space-y-4">
+                  <div className="space-y-2.5">
                     {[
                       <>Bhargava, P., MacDonald, K., Newton, C., Lin, H., &amp; Pennycook, G. (2023). How effective are TikTok misinformation debunking videos? <i className="italic">Harvard Kennedy School Misinformation Review</i>.</>,
                       <>Oden, A., &amp; Porter, L. (2023). The Kids Are Online: Teen Social Media Use, Civic Engagement, and Affective Polarization. <i className="italic">Social Media + Society, 9</i>(3).</>,
@@ -732,7 +732,7 @@ export default function Home() {
                     ].map((ref, i) => (
                       <div key={i} className="overflow-hidden">
                         <motion.p
-                          className="font-mono text-[10px] md:text-sm text-foreground/55 leading-relaxed break-words"
+                          className="font-mono text-[10px] md:text-xs text-foreground/55 leading-snug break-words"
                           initial={{ y: '110%' }}
                           animate={{ y: currentSection === 14 ? '0%' : '110%' }}
                           transition={{ duration: 0.75, delay: 0.45 + i * 0.08, ease: [0.22, 1, 0.36, 1] }}
@@ -745,16 +745,16 @@ export default function Home() {
                 </div>
               </div>
               <motion.div
-                className="mt-16"
+                className="mt-6"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: currentSection === 14 ? 1 : 0 }}
                 transition={{ duration: 1.0, delay: 0.8 }}
               >
-                <span className="font-serif text-[clamp(3rem,8vw,6rem)] italic text-accent/60 leading-none">Fin.</span>
+                <span className="font-serif text-[clamp(2rem,5vw,3.5rem)] italic text-accent/60 leading-none">Fin.</span>
               </motion.div>
 
               <motion.div
-                className="mt-24 pb-8"
+                className="mt-6"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: currentSection === 14 ? 1 : 0 }}
                 transition={{ duration: 1.0, delay: 1.2 }}
