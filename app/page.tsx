@@ -272,9 +272,9 @@ export default function Home() {
 
           {/* Section 2: Problem Statement — Evidence (numbered statements) */}
           <SlideSection index={2} currentSection={currentSection}>
-            <div className="max-w-4xl w-full mx-auto px-6 md:px-10">
+            <div className="max-w-4xl w-full mx-auto px-6 md:px-10 lg:px-6 xl:px-10">
               <ScrollSection animation="fade-up" isActive={currentSection === 2}>
-                <h2 className="font-serif text-3xl md:text-5xl tracking-tight mb-8 md:mb-12">Problem Statement</h2>
+                <h2 className="font-serif text-3xl md:text-5xl lg:text-4xl xl:text-5xl tracking-tight mb-8 md:mb-12 lg:mb-8 xl:mb-12">Problem Statement</h2>
               </ScrollSection>
               {[
                 { n: '01', title: 'Emotional Algorithms', body: 'Young people rapidly encounter political information that is simplified or driven by emotion, rewarded for algorithmic engagement rather than accuracy.' },
@@ -282,13 +282,13 @@ export default function Home() {
                 { n: '03', title: 'Civic Impact', body: 'This contributes to a society where political confidence and distrust are based heavily on emotional reactions rather than factual evidence or careful evaluation.' },
               ].map((item, i) => (
                 <ScrollSection key={item.n} animation="fade-left" isActive={currentSection === 2} delay={0.15 + i * 0.13}>
-                  <div className="flex items-start gap-4 md:gap-10 py-5 md:py-8 border-b border-foreground/8 last:border-0">
-                    <span className="font-serif text-4xl md:text-7xl text-accent/30 leading-none tabular-nums shrink-0 w-16 md:w-28 pt-1">
+                  <div className="flex items-start gap-4 md:gap-10 lg:gap-6 xl:gap-10 py-5 md:py-8 lg:py-4 xl:py-8 border-b border-foreground/8 last:border-0">
+                    <span className="font-serif text-4xl md:text-7xl lg:text-5xl xl:text-7xl text-accent/30 leading-none tabular-nums shrink-0 w-16 md:w-28 lg:w-20 xl:w-28 pt-1">
                       {item.n}
                     </span>
                     <div>
-                      <h3 className="font-serif text-xl md:text-3xl mb-2 md:mb-3">{item.title}</h3>
-                      <p className="text-foreground/70 text-base md:text-xl leading-relaxed">{item.body}</p>
+                      <h3 className="font-serif text-xl md:text-3xl lg:text-2xl xl:text-3xl mb-2 md:mb-3 lg:mb-2 xl:mb-3">{item.title}</h3>
+                      <p className="text-foreground/70 text-base md:text-xl lg:text-lg xl:text-xl leading-relaxed">{item.body}</p>
                     </div>
                   </div>
                 </ScrollSection>
@@ -326,20 +326,20 @@ export default function Home() {
           <SlideSection index={4} currentSection={currentSection}>
             <div className="max-w-5xl mx-auto px-6">
               <ScrollSection animation="elastic" isActive={currentSection === 4}>
-                <h2 className="font-serif text-3xl md:text-5xl tracking-tight mb-6 md:mb-10">Proposed Methodology</h2>
+                <h2 className="font-serif text-3xl md:text-5xl lg:text-4xl xl:text-5xl tracking-tight mb-6 md:mb-10 lg:mb-6 xl:mb-10">Proposed Methodology</h2>
               </ScrollSection>
-              <div className="grid md:grid-cols-2 gap-8 md:gap-16">
+              <div className="grid md:grid-cols-2 gap-8 md:gap-16 lg:gap-10 xl:gap-16">
                 <ScrollSection animation="fade-left" isActive={currentSection === 4} delay={0.2}>
                   <div>
                     <h3 className="font-serif text-2xl italic mb-2">Quantitative</h3>
-                    <div className="w-8 h-px bg-foreground/20 mb-4 md:mb-8" />
-                    <ul className="space-y-3 md:space-y-5">
+                    <div className="w-8 h-px bg-foreground/20 mb-4 md:mb-8 lg:mb-4 xl:mb-8" />
+                    <ul className="space-y-3 md:space-y-5 lg:space-y-3 xl:space-y-5">
                       {[
                         'Pretest-posttest format to measure baseline vs post-exposure variables',
                         'Collect data on perceived understanding levels',
                         'Measure changes in civic confidence and political efficacy',
                       ].map((item, j) => (
-                        <li key={j} className="flex gap-3 md:gap-4 text-foreground/80 text-base md:text-lg leading-relaxed font-light">
+                        <li key={j} className="flex gap-3 md:gap-4 lg:gap-3 xl:gap-4 text-foreground/80 text-base md:text-lg lg:text-base xl:text-lg leading-relaxed font-light">
                           <span className="font-mono text-[10px] text-foreground/30 pt-1.5 tabular-nums shrink-0">{String(j + 1).padStart(2, '0')}</span>
                           <span>{item}</span>
                         </li>
@@ -350,14 +350,14 @@ export default function Home() {
                 <ScrollSection animation="fade-right" isActive={currentSection === 4} delay={0.3}>
                   <div>
                     <h3 className="font-serif text-2xl italic mb-2 text-foreground/60">Qualitative</h3>
-                    <div className="w-8 h-px bg-foreground/15 mb-4 md:mb-8" />
-                    <ul className="space-y-3 md:space-y-5">
+                    <div className="w-8 h-px bg-foreground/15 mb-4 md:mb-8 lg:mb-4 xl:mb-8" />
+                    <ul className="space-y-3 md:space-y-5 lg:space-y-3 xl:space-y-5">
                       {[
                         'Written reflections on content trust and emotional response',
                         'Student explanations of persuasive techniques identified',
                         'Analyze interpretations based on 3 distinct media styles viewed',
                       ].map((item, j) => (
-                        <li key={j} className="flex gap-3 md:gap-4 text-foreground/80 text-base md:text-lg leading-relaxed font-light">
+                        <li key={j} className="flex gap-3 md:gap-4 lg:gap-3 xl:gap-4 text-foreground/80 text-base md:text-lg lg:text-base xl:text-lg leading-relaxed font-light">
                           <span className="font-mono text-[10px] text-foreground/30 pt-1.5 tabular-nums shrink-0">{String(j + 1).padStart(2, '0')}</span>
                           <span>{item}</span>
                         </li>
@@ -415,14 +415,14 @@ export default function Home() {
           <SlideSection index={6} currentSection={currentSection}>
             <div className="max-w-5xl mx-auto px-6">
               <ScrollSection animation="fade-up" isActive={currentSection === 6}>
-                <h2 className="font-serif text-3xl md:text-5xl tracking-tight mb-6 md:mb-12">Focused Variables</h2>
+                <h2 className="font-serif text-3xl md:text-5xl lg:text-4xl xl:text-5xl tracking-tight mb-6 md:mb-12 lg:mb-6 xl:mb-12">Focused Variables</h2>
               </ScrollSection>
-              <div className="grid md:grid-cols-3 gap-4 md:gap-8">
+              <div className="grid md:grid-cols-3 gap-4 md:gap-8 lg:gap-5 xl:gap-8">
                 <ScrollSection animation="fade-right" isActive={currentSection === 6} delay={0.2}>
-                  <div className="p-4 md:p-6 border border-foreground/10 rounded-xl bg-foreground/[0.02]">
-                    <h3 className="font-serif text-xl md:text-3xl mb-2 md:mb-4 text-accent/80">Independent Variable</h3>
-                    <p className="text-foreground/80 text-base md:text-xl mb-2 md:mb-4 font-light">Type of short-form political media viewed:</p>
-                    <ul className="space-y-1.5 md:space-y-3 font-light text-foreground/60 text-sm md:text-lg">
+                  <div className="p-4 md:p-6 lg:p-4 xl:p-6 border border-foreground/10 rounded-xl bg-foreground/[0.02]">
+                    <h3 className="font-serif text-xl md:text-3xl lg:text-2xl xl:text-3xl mb-2 md:mb-4 lg:mb-2 xl:mb-4 text-accent/80">Independent Variable</h3>
+                    <p className="text-foreground/80 text-base md:text-xl lg:text-base xl:text-xl mb-2 md:mb-4 lg:mb-2 xl:mb-4 font-light">Type of short-form political media viewed:</p>
+                    <ul className="space-y-1.5 md:space-y-3 lg:space-y-1.5 xl:space-y-3 font-light text-foreground/60 text-sm md:text-lg lg:text-sm xl:text-lg">
                       <li>• Issue-based INFO content</li>
                       <li>• Emotional CONFLICT content</li>
                       <li>• Influencer COMMENTARY</li>
@@ -430,9 +430,9 @@ export default function Home() {
                   </div>
                 </ScrollSection>
                 <ScrollSection animation="fade-up" isActive={currentSection === 6} delay={0.3}>
-                  <div className="p-4 md:p-6 border border-foreground/10 rounded-xl bg-foreground/[0.02]">
-                    <h3 className="font-serif text-xl md:text-3xl mb-2 md:mb-4 text-foreground/80">Dependent Variables</h3>
-                    <ul className="space-y-2 md:space-y-4 font-light text-foreground/70 text-base md:text-xl">
+                  <div className="p-4 md:p-6 lg:p-4 xl:p-6 border border-foreground/10 rounded-xl bg-foreground/[0.02]">
+                    <h3 className="font-serif text-xl md:text-3xl lg:text-2xl xl:text-3xl mb-2 md:mb-4 lg:mb-2 xl:mb-4 text-foreground/80">Dependent Variables</h3>
+                    <ul className="space-y-2 md:space-y-4 lg:space-y-2 xl:space-y-4 font-light text-foreground/70 text-base md:text-xl lg:text-base xl:text-xl">
                       <li>• Perceived issue understanding</li>
                       <li>• Civic confidence / efficacy</li>
                       <li>• Trust / skepticism level</li>
@@ -441,9 +441,9 @@ export default function Home() {
                   </div>
                 </ScrollSection>
                 <ScrollSection animation="fade-left" isActive={currentSection === 6} delay={0.4}>
-                  <div className="p-4 md:p-6 border border-foreground/10 rounded-xl bg-foreground/[0.02]">
-                    <h3 className="font-serif text-xl md:text-3xl mb-2 md:mb-4 text-foreground/50">Control Variables</h3>
-                    <ul className="space-y-1.5 md:space-y-3 font-light text-foreground/60 text-sm md:text-lg">
+                  <div className="p-4 md:p-6 lg:p-4 xl:p-6 border border-foreground/10 rounded-xl bg-foreground/[0.02]">
+                    <h3 className="font-serif text-xl md:text-3xl lg:text-2xl xl:text-3xl mb-2 md:mb-4 lg:mb-2 xl:mb-4 text-foreground/50">Control Variables</h3>
+                    <ul className="space-y-1.5 md:space-y-3 lg:space-y-1.5 xl:space-y-3 font-light text-foreground/60 text-sm md:text-lg lg:text-sm xl:text-lg">
                       <li>• Previous online exposure</li>
                       <li>• Prior political interest</li>
                       <li>• Familiarity with issue</li>
@@ -459,9 +459,9 @@ export default function Home() {
           <SlideSection index={7} currentSection={currentSection}>
             <div className="max-w-4xl mx-auto px-6">
               <ScrollSection animation="fade-up" isActive={currentSection === 7}>
-                <h2 className="font-serif text-3xl md:text-5xl tracking-tight mb-6 md:mb-12">Purpose</h2>
+                <h2 className="font-serif text-3xl md:text-5xl lg:text-4xl xl:text-5xl tracking-tight mb-6 md:mb-12 lg:mb-6 xl:mb-12">Purpose</h2>
               </ScrollSection>
-              <div className="space-y-4 md:space-y-8">
+              <div className="space-y-4 md:space-y-8 lg:space-y-4 xl:space-y-8">
                 {[
                   { num: '01', text: 'To clearly understand whether short-form political media helps students feel more informed or creates a surface-level illusion.' },
                   { num: '02', text: 'To explain how different messaging styles shape early voter trust, engagement confidence, and evidence interpretation.' },
@@ -469,11 +469,11 @@ export default function Home() {
                 ].map((item, i) => (
                   <ScrollSection key={item.num} animation="fade-right" isActive={currentSection === 7} delay={0.2 + i * 0.15}>
                     <motion.div 
-                      className="flex items-start gap-4 md:gap-8 group"
+                      className="flex items-start gap-4 md:gap-8 lg:gap-6 xl:gap-8 group"
                       whileHover={{ x: 10 }}
                     >
-                      <span className="font-mono text-4xl md:text-7xl text-foreground/10 group-hover:text-foreground/20 transition-colors">{item.num}</span>
-                      <p className="text-lg md:text-3xl text-foreground/80 leading-relaxed md:pt-3 font-light">{item.text}</p>
+                      <span className="font-mono text-4xl md:text-7xl lg:text-5xl xl:text-7xl text-foreground/10 group-hover:text-foreground/20 transition-colors">{item.num}</span>
+                      <p className="text-lg md:text-3xl lg:text-xl xl:text-3xl text-foreground/80 leading-relaxed md:pt-3 lg:pt-1 xl:pt-3 font-light">{item.text}</p>
                     </motion.div>
                   </ScrollSection>
                 ))}
@@ -593,7 +593,7 @@ export default function Home() {
           <SlideSection index={11} currentSection={currentSection}>
             <div className="max-w-4xl mx-auto px-6">
               <ScrollSection animation="fade-up" isActive={currentSection === 11}>
-                <h2 className="font-serif text-3xl md:text-5xl tracking-tight mb-6 md:mb-12">Value</h2>
+                <h2 className="font-serif text-3xl md:text-5xl lg:text-4xl xl:text-5xl tracking-tight mb-6 md:mb-12 lg:mb-6 xl:mb-12">Value</h2>
               </ScrollSection>
               <div>
                 {[
@@ -603,13 +603,13 @@ export default function Home() {
                 ].map((item, i) => (
                   <ScrollSection key={item.letter} animation="parallax" isActive={currentSection === 11} delay={0.15 + i * 0.15}>
                     <motion.div
-                      className="flex items-start gap-4 md:gap-8 py-4 md:py-8 border-b border-foreground/8 last:border-0"
+                      className="flex items-start gap-4 md:gap-8 lg:gap-6 xl:gap-8 py-4 md:py-8 lg:py-5 xl:py-8 border-b border-foreground/8 last:border-0"
                       whileHover={{ x: 8 }}
                     >
-                      <span className="font-serif text-[3.5rem] md:text-[5rem] leading-none text-foreground/[0.1] shrink-0 w-12 md:w-20 select-none">{item.letter}</span>
+                      <span className="font-serif text-[3.5rem] md:text-[5rem] lg:text-[4rem] xl:text-[5rem] leading-none text-foreground/[0.1] shrink-0 w-12 md:w-20 lg:w-16 xl:w-20 select-none">{item.letter}</span>
                       <div className="pt-1 md:pt-2">
-                        <h3 className="font-serif text-xl md:text-3xl mb-1.5 md:mb-3">{item.title}</h3>
-                        <p className="text-foreground/70 text-base md:text-xl leading-relaxed font-light">{item.desc}</p>
+                        <h3 className="font-serif text-xl md:text-3xl lg:text-2xl xl:text-3xl mb-1.5 md:mb-3 lg:mb-2 xl:mb-3">{item.title}</h3>
+                        <p className="text-foreground/70 text-base md:text-xl lg:text-lg xl:text-xl leading-relaxed font-light">{item.desc}</p>
                       </div>
                     </motion.div>
                   </ScrollSection>
@@ -622,9 +622,9 @@ export default function Home() {
           <SlideSection index={12} currentSection={currentSection}>
             <div className="max-w-4xl mx-auto px-6">
               <ScrollSection animation="rotate-in" isActive={currentSection === 12}>
-                <h2 className="font-serif text-3xl md:text-5xl tracking-tight mb-6 md:mb-12">Ethics & Limitations</h2>
+                <h2 className="font-serif text-3xl md:text-5xl lg:text-4xl xl:text-5xl tracking-tight mb-6 md:mb-12 lg:mb-8 xl:mb-12">Ethics & Limitations</h2>
               </ScrollSection>
-              <div className="grid md:grid-cols-2 gap-4 md:gap-6">
+              <div className="grid md:grid-cols-2 gap-4 md:gap-6 lg:gap-5 xl:gap-8">
                 {[
                   { title: 'Content Safety', desc: 'Content will be fictional, neutral, or non-partisan to minimize risk, avoiding actual extremist propaganda.' },
                   { title: 'Voluntary & Anonymous', desc: 'Students are not asked to reveal their true political beliefs, just how they interpret formatting styles.' },
@@ -633,11 +633,11 @@ export default function Home() {
                 ].map((item, i) => (
                   <ScrollSection key={item.title} animation="fade-up" isActive={currentSection === 12} delay={0.1 + i * 0.1}>
                     <motion.div 
-                      className="p-5 md:p-8 rounded-xl border border-foreground/10 hover:border-foreground/20 transition-colors bg-foreground/[0.01]"
+                      className="p-5 md:p-8 lg:p-6 xl:p-8 rounded-xl border border-foreground/10 hover:border-foreground/20 transition-colors bg-foreground/[0.01]"
                       whileHover={{ x: 5 }}
                     >
-                      <h3 className="font-serif text-lg md:text-2xl mb-2 md:mb-3 text-foreground/80">{item.title}</h3>
-                      <p className="text-foreground/60 text-base md:text-lg leading-relaxed font-light">{item.desc}</p>
+                      <h3 className="font-serif text-lg md:text-2xl lg:text-xl xl:text-2xl mb-2 md:mb-3 lg:mb-2 xl:mb-3 text-foreground/80">{item.title}</h3>
+                      <p className="text-foreground/60 text-base md:text-lg lg:text-sm xl:text-lg leading-relaxed font-light">{item.desc}</p>
                     </motion.div>
                   </ScrollSection>
                 ))}
@@ -649,9 +649,9 @@ export default function Home() {
           <SlideSection index={13} currentSection={currentSection}>
             <div className="max-w-4xl mx-auto px-6">
               <ScrollSection animation="scale" isActive={currentSection === 13}>
-                <h2 className="font-serif text-3xl md:text-4xl tracking-tight mb-6 md:mb-8">Timeline</h2>
+                <h2 className="font-serif text-3xl md:text-4xl lg:text-3xl xl:text-4xl tracking-tight mb-6 md:mb-8 lg:mb-5 xl:mb-8">Timeline</h2>
               </ScrollSection>
-              <div className="space-y-4 md:space-y-5">
+              <div className="space-y-4 md:space-y-5 lg:space-y-3 xl:space-y-5">
                 {[
                   { num: 1, title: 'Finalize Design & Submissions', desc: 'Secure research question, content samples, consent process, measurable tools and complete UofT ethics board approval.', time: 'Month 1' },
                   { num: 2, title: 'Launch Execution', desc: 'Launch survey and reflection prompts with high school student participation groups.', time: 'Month 2' },
@@ -661,18 +661,18 @@ export default function Home() {
                 ].map((item, i) => (
                   <ScrollSection key={item.num} animation="fade-left" isActive={currentSection === 13} delay={0.1 + i * 0.12}>
                     <motion.div
-                      className="flex items-start gap-4 md:gap-5"
+                      className="flex items-start gap-4 md:gap-5 lg:gap-4 xl:gap-5"
                       whileHover={{ x: 10 }}
                     >
                       <motion.div
-                        className="w-10 h-10 md:w-12 md:h-12 rounded-full border border-foreground/20 hover:border-foreground/40 flex items-center justify-center shrink-0 mt-0.5"
+                        className="w-10 h-10 md:w-12 md:h-12 lg:w-10 lg:h-10 xl:w-12 xl:h-12 rounded-full border border-foreground/20 hover:border-foreground/40 flex items-center justify-center shrink-0 mt-0.5"
                         whileHover={{ scale: 1.1 }}
                       >
-                        <span className="font-serif text-lg md:text-xl text-foreground/60">{item.num}</span>
+                        <span className="font-serif text-lg md:text-xl lg:text-lg xl:text-xl text-foreground/60">{item.num}</span>
                       </motion.div>
                       <div>
-                        <h3 className="font-serif text-lg md:text-2xl mb-0.5">{item.title}</h3>
-                        <p className="text-foreground/70 text-sm md:text-base leading-snug mb-1 font-light">{item.desc}</p>
+                        <h3 className="font-serif text-lg md:text-2xl lg:text-xl xl:text-2xl mb-0.5">{item.title}</h3>
+                        <p className="text-foreground/70 text-sm md:text-base lg:text-sm xl:text-base leading-snug mb-1 font-light">{item.desc}</p>
                         <span className="font-mono text-xs uppercase tracking-wider text-foreground/40">{item.time}</span>
                       </div>
                     </motion.div>
