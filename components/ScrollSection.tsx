@@ -265,18 +265,18 @@ interface SectionImageProps {
 }
 
 const sectionImagePositions = {
-  'top-left':    { top: '8%',  left: '4%',  entryX: -50, entryY: -20 },
-  'top-right':   { top: '8%',  right: '4%', entryX: 50,  entryY: -20 },
-  'bottom-left': { bottom: '8%', left: '4%', entryX: -50, entryY: 20 },
-  'bottom-right':{ bottom: '8%', right: '4%', entryX: 50, entryY: 20 },
-  'mid-left':    { top: '30%', left: '3%',  entryX: -60, entryY: 0 },
-  'mid-right':   { top: '30%', right: '3%', entryX: 60,  entryY: 0 },
+  'top-left':    { top: '8%',  left: '3%',  entryX: -50, entryY: -20 },
+  'top-right':   { top: '8%',  right: '3%', entryX: 50,  entryY: -20 },
+  'bottom-left': { bottom: '8%', left: '3%', entryX: -50, entryY: 20 },
+  'bottom-right':{ bottom: '8%', right: '3%', entryX: 50, entryY: 20 },
+  'mid-left':    { top: '30%', left: '2%',  entryX: -60, entryY: 0 },
+  'mid-right':   { top: '30%', right: '2%', entryX: 60,  entryY: 0 },
 };
 
 const sectionImageSizes = {
-  sm: 'w-24 md:w-36',
-  md: 'w-32 md:w-52',
-  lg: 'w-44 md:w-64',
+  sm: 'w-20 md:w-24 lg:w-28 xl:w-36',
+  md: 'w-24 md:w-32 lg:w-36 xl:w-52',
+  lg: 'w-32 md:w-40 lg:w-44 xl:w-64',
 };
 
 // Ken-burns profiles vary by section index so each image has a distinct drift direction

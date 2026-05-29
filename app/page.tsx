@@ -79,8 +79,8 @@ export default function Home() {
           <FloatingImage
             index={0}
             src={sampleImages[0]}
-            className="w-20 md:w-32 aspect-[3/4] opacity-20"
-            style={{ top: '8%', left: '10%' }}
+            className="w-16 md:w-20 lg:w-24 xl:w-32 aspect-[3/4] opacity-20"
+            style={{ top: '8%', left: '8%' }}
             parallaxStrength={15}
             rotateAmount={-2}
             imgStyle={{ filter: 'grayscale(0.2) contrast(1.08)' }}
@@ -90,8 +90,8 @@ export default function Home() {
           <FloatingImage
             index={1}
             src={sampleImages[3]}
-            className="w-24 md:w-40 aspect-[3/4] opacity-15"
-            style={{ top: '45%', right: '6%' }}
+            className="w-20 md:w-28 lg:w-32 xl:w-40 aspect-[3/4] opacity-15"
+            style={{ top: '45%', right: '4%' }}
             parallaxStrength={25}
             rotateAmount={4}
             imgStyle={{ filter: 'saturate(0.9) brightness(1.05)' }}
@@ -101,7 +101,7 @@ export default function Home() {
           <FloatingImage
             index={2}
             src={sampleImages[1]}
-            className="w-28 md:w-36 aspect-[3/4] opacity-20"
+            className="w-24 md:w-24 lg:w-28 xl:w-36 aspect-[3/4] opacity-20"
             style={{ bottom: '10%', right: '35%' }}
             parallaxStrength={20}
             rotateAmount={-3}
