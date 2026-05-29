@@ -29,9 +29,9 @@ export default function RootLayout({
 	children: React.ReactNode;
 }>) {
 	return (
-		<html lang="en" className="bg-background scroll-smooth">
+		<html lang="en" className="bg-background scroll-smooth overflow-x-hidden">
 			<body
-				className={`${geistMono.variable} ${instrumentSerif.variable} antialiased`}
+				className={`${geistMono.variable} ${instrumentSerif.variable} antialiased overflow-x-hidden`}
 			>
 				{children}
 			</body>
