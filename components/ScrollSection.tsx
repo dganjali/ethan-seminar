@@ -68,11 +68,18 @@ export function useSlideScroll(totalSections: number) {
     }
   }, [goToSection]);
 
+  const handleClick = useCallback((e: MouseEvent) => {
+    // Ignore clicks on buttons, links, or interactive elements
+    if (e.target instanceof Element && (e.target.closest('button') || e.target.closest('a'))) return;
+    goToSection(currentSectionRef.current + 1);
+  }, [goToSection]);
+
   useEffect(() => {
     window.addEventListener('wheel', handleWheel, { passive: false });
     window.addEventListener('keydown', handleKeyDown);
     window.addEventListener('touchstart', handleTouch as EventListener);
     window.addEventListener('touchend', handleTouch as EventListener);
+    window.addEventListener('click', handleClick as EventListener);
     document.body.style.overflow = 'hidden';
     document.documentElement.style.overflow = 'hidden';
 
@@ -81,10 +88,11 @@ export function useSlideScroll(totalSections: number) {
       window.removeEventListener('keydown', handleKeyDown);
       window.removeEventListener('touchstart', handleTouch as EventListener);
       window.removeEventListener('touchend', handleTouch as EventListener);
+      window.removeEventListener('click', handleClick as EventListener);
       document.body.style.overflow = '';
       document.documentElement.style.overflow = '';
     };
-  }, [handleWheel, handleKeyDown, handleTouch]);
+  }, [handleWheel, handleKeyDown, handleTouch, handleClick]);
 
   return { currentSection, goToSection, totalSections };
 }
@@ -438,6 +446,14 @@ interface ProgressIndicatorProps {
 }
 
 export function ProgressIndicator({ currentSection, totalSections, sectionLabels, goToSection }: ProgressIndicatorProps) {
+  const [justChanged, setJustChanged] = useState<number | null>(null);
+
+  useEffect(() => {
+    setJustChanged(currentSection);
+    const timer = setTimeout(() => setJustChanged(null), 1000);
+    return () => clearTimeout(timer);
+  }, [currentSection]);
+
   return (
     <div className="fixed right-4 md:right-8 top-1/2 -translate-y-1/2 z-50 flex flex-col gap-2 md:gap-3">
       {Array.from({ length: totalSections }).map((_, index) => (
@@ -447,7 +463,7 @@ export function ProgressIndicator({ currentSection, totalSections, sectionLabels
           className="group relative flex items-center justify-end p-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-foreground/50 rounded cursor-pointer"
           aria-label={sectionLabels?.[index] || `Go to section ${index + 1}`}
         >
-          <span className="absolute right-8 opacity-0 group-hover:opacity-100 transition-all duration-300 font-mono text-[11px] md:text-sm uppercase tracking-wider text-foreground whitespace-nowrap bg-background/80 px-3 py-1.5 rounded-md pointer-events-none transform translate-x-2 group-hover:translate-x-0">
+          <span className={`absolute right-8 transition-all duration-300 font-mono text-[11px] md:text-sm uppercase tracking-wider text-foreground whitespace-nowrap bg-background/80 px-3 py-1.5 rounded-md pointer-events-none transform ${justChanged === index ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-2 group-hover:opacity-100 group-hover:translate-x-0'}`}>
             {sectionLabels?.[index] || `Section ${index + 1}`}
           </span>
           <motion.div
